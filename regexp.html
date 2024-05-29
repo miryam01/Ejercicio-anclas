@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regexp phone validation</title>
+    <style>
+        body {
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Validación de teléfono mediante a expresiones regulares:</h1>
+        
+        
+        </p>
+        <div class="form-container">
+            <form id="phoneForm">
+                <input type="text" id="phoneInput" placeholder="Enter 9 digits of your phone" pattern="^\d{9}$" required>
+                <br>
+                <input type="submit" value="Submit">
+                <p id="error-message" class="error" style="display:none;">El número de teléfono debe tener 9 dígitos.</p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('phoneForm').addEventListener('submit', function(event) {
+            var phoneInput = document.getElementById('phoneInput');
+            var errorMessage = document.getElementById('error-message');
+            var phonePattern = /^\d{9}$/;
+
+            if (!phonePattern.test(phoneInput.value)) {
+                errorMessage.style.display = 'block';
+                event.preventDefault();
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
